@@ -39,8 +39,8 @@ public class UserDaoHibernate implements UserDao{
 
     @Override
     @Transactional
-    public void updateUser(int id, User user) {
-        User user1 = entityManager.find(User.class, id);
+    public void updateUser(User user) {
+        User user1 = entityManager.find(User.class, user.getId());
         user1.setName(user.getName());
         user1.setSurname(user.getSurname());
         user1.setAge(user.getAge());

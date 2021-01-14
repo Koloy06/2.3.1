@@ -14,5 +14,5 @@ public interface UserDao {
 
     User showUser(int id);
 
-    void updateUser(int id, User user);
+    void updateUser(User user);
 }

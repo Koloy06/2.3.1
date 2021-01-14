@@ -27,7 +27,9 @@
             <td th:text="${user.age}"></td>
             <td th:text="${user.gender}"></td>
             <td>
-                <button th:href="@{/users/{id}/edit(id=${user.id})}">Edit</button>
+                <form th:action="@{/users/edit/{id}(id=${user.id})}">
+                    <button type="submit">Edit</button>
+                </form>
             </td>
             <td>
                 <form th:action="@{/users/delete/{id}(id=${user.id})}" th:method="DELETE" >

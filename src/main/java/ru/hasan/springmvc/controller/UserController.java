@@ -25,13 +25,13 @@ public class UserController {
         return "users/users";
     }
 
-    @GetMapping(value = "users/new")
+    @GetMapping(value = "/users/new")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "users/new";
     }
 
-    @PostMapping()
+    @PostMapping(value = "/users")
     public String create(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/users";
@@ -43,15 +43,15 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping(value = "/users/{id}/edit")
+    @GetMapping(value = "/users/edit/{id}")
     public String editUser(Model model, @PathVariable("id") int id) {
         model.addAttribute("user", userService.showUser(id));
         return "/users/edit";
     }
 
     @PatchMapping("/users/{id}")
-    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-         userService.updateUser(id, user);
+    public String updateUser(@ModelAttribute("user") User user) {
+         userService.updateUser(user);
          return "redirect:/users";
     }
 

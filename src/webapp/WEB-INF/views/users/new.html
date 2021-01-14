@@ -5,7 +5,7 @@
     <title>Add</title>
 </head>
 <body>
-<form method="post" th:action="@{/}" th:object="${user}">
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
     <legend>Add user in base</legend>
     <div>
         <label for="name">Name</label>
@@ -25,7 +25,7 @@
         <p><input th:field="*{gender}" type="radio" value="W" >W</p>
     </div>
     <div>
-        <input type="submit" value="Add">
+        <input type="submit" value="Create">
     </div>
 </form>
 </body>
